@@ -1,0 +1,23 @@
+# Dependências
+node_modules/
+
+# Arquivos públicos que não precisam ser versionados
+public/vite.svg
+src/assets/react.svg
+
+# Configuração do Vite e ESLint
+.eslint.config.js
+vite.config.js
+
+# Logs e arquivos temporários
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Cache e arquivos gerados pelo sistema (ex: macOS, Windows)
+.DS_Store    
+Thumbs.db
+.idea/
+.vscode/
+.cache/
