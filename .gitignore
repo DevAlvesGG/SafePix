@@ -6,8 +6,7 @@ public/vite.svg
 src/assets/react.svg
 
 # Configuração do Vite e ESLint
-.eslint.config.js
-vite.config.js
+config
 
 # Logs e arquivos temporários
 *.log
