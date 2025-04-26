@@ -1,3 +1,37 @@
+<<<<<<< HEAD
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+/*
+!.gitignore
+!public/
+
+*.log
+node_modules/
+.env
+=======
 # Dependências
 node_modules/
 
@@ -20,3 +54,4 @@ Thumbs.db
 .idea/
 .vscode/
 .cache/
+>>>>>>> c0d74e2d912443bfb0a55863e7e25a24d8428a65
