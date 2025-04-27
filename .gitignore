@@ -27,6 +27,10 @@ dist-ssr
 !.gitignore
 !public/
 !src/
+!vite.config.js
+!package.json
+!package-lock.json
+!index.html
 
 *.log
 node_modules/
