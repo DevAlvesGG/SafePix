@@ -26,6 +26,7 @@ dist-ssr
 /*
 !.gitignore
 !public/
+!src/
 
 *.log
 node_modules/
