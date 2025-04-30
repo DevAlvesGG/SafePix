@@ -28,7 +28,7 @@
 
 .home span {
     font-size: 5rem;
-    color: rgb(160, 17, 117);
+    color: #7e3ff2;
     font-weight: bold;
 
 }
@@ -48,7 +48,7 @@
 }
 
 .btn_blue {
-    background-color: rgb(160, 17, 117);
+    background-color: #7e3ff2;
     color: black;
     cursor: pointer;
 }
@@ -56,6 +56,5 @@
 .btn_blue:hover {
     background-color: rgb(255, 255, 255);
     text-decoration: underline;
-    color: rgb(160, 17, 117);
-    ;
+    color: #7e3ff2;
 }

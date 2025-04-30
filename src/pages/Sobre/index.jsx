@@ -28,10 +28,10 @@ function Sobre() {
                     <div className={styles.box3}>
                         <span className={styles.valores}>NOSSOS VALORES</span>
                         <h2 className={styles.texto3}>
-                            •	Transparência: Informações claras, respeitando a veracidade e os direitos de todos.<br/>
-                            •	Segurança: Proteção de dados e privacidade dos nossos usuários é prioridade absoluta.<br/>
-                            •	Imparcialidade: Não emitimos julgamentos; apenas disponibilizamos informações registradas pelos próprios usuários.<br/>
-                            •	Colaboração: Acreditamos na união entre pessoas, empresas, bancos e autoridades para combater fraudes.<br/>
+                            •	Transparência: Informações claras, respeitando a veracidade e os direitos de todos.<br />
+                            •	Segurança: Proteção de dados e privacidade dos nossos usuários é prioridade absoluta.<br />
+                            •	Imparcialidade: Não emitimos julgamentos; apenas disponibilizamos informações registradas pelos próprios usuários.<br />
+                            •	Colaboração: Acreditamos na união entre pessoas, empresas, bancos e autoridades para combater fraudes.<br />
                             •	Responsabilidade Legal: Operamos com respeito às leis vigentes, garantindo que nossos serviços não comprometam a integridade de investigações oficiais ou prejudiquem terceiros.
                         </h2>
                     </div>
