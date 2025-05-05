@@ -47,13 +47,13 @@
     text-decoration: none;
 }
 
-.btn_blue {
+.btn_roxo {
     background-color: #7e3ff2;
     color: black;
     cursor: pointer;
 }
 
-.btn_blue:hover {
+.btn_roxo:hover {
     background-color: rgb(255, 255, 255);
     text-decoration: underline;
     color: #7e3ff2;

@@ -7,7 +7,7 @@
   }
 
 .box1{
-    background-color: #7e3ff2;
+    background-color: #9f8ff8;
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 40px;
@@ -17,7 +17,7 @@
 
 }
 .box2{
-    background-color: #4169E1;
+    background-color: #9f8ff8;
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 40px;
@@ -26,7 +26,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .box3{
-    background-color: #7e3ff2;
+    background-color: #9f8ff8;
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 40px;
@@ -37,7 +37,7 @@
 }
 .nos{
     font-size: 2rem;
-    color: rgb(0, 0, 0);
+    color: rgb(0, 1, 83);
     font-weight: bold;
     
 }
@@ -48,7 +48,7 @@
 }
 .objetivo{
     font-size: 2rem;
-    color: rgb(0, 0, 0);
+    color: rgb(0, 1, 83);
     font-weight: bold;
     
 }
@@ -59,7 +59,7 @@
 }
 .valores{
     font-size: 2rem;
-    color: rgb(0, 0, 0);
+    color: rgb(0, 1, 83);
     font-weight: bold;
     
 }

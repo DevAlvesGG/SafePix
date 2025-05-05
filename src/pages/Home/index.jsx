@@ -15,7 +15,7 @@ function Home() {
                             <span>SafePix</span> <br />
                             Ajudando você
                         </p>
-                        <Link to='/sobre' className={`${styles.btn} ${styles.btn_blue}`}>
+                        <Link to='/sobre' className={`${styles.btn} ${styles.btn_roxo}`}>
                             Saiba Mais sobre mim
                         </Link>
                     </div>
