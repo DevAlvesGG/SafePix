@@ -1,0 +1,197 @@
+
+
+.duvidasSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    width: 100%;
+}
+
+.pageTitle {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+    border-bottom: 2px solid #7e3ff2;
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.chatContainer {
+    width: 100%;
+    max-width: 800px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 600px; 
+    overflow: hidden; 
+}
+
+.messagesList {
+    flex-grow: 1; 
+    overflow-y: auto; 
+    padding-right: 10px; 
+    display: flex; 
+    flex-direction: column;
+    gap: 15px; 
+}
+
+
+.messagesList::-webkit-scrollbar {
+    width: 8px;
+}
+
+.messagesList::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.messagesList::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+}
+
+
+
+.messageBubbleContainer {
+    display: flex;
+    width: 100%;
+}
+
+
+.messageBubbleUser {
+    justify-content: flex-end;
+}
+
+
+.messageBubbleSafePix {
+    justify-content: flex-start;
+}
+
+
+.messageBubble {
+    padding: 10px 15px;
+    max-width: 80%; 
+    word-wrap: break-word; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.messageBubbleUser .messageBubble {
+    background-color: #7e3ff2;
+    color: #fff;
+    border-radius: 18px 18px 2px 18px;
+}
+
+.messageBubbleSafePix .messageBubble {
+    background-color: #e0e0e0;
+    color: #333;
+    border-radius: 18px 18px 18px 2px; 
+}
+
+.messageText {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    font-family: 'Roboto', sans-serif;
+}
+
+.messageTime {
+    display: block;
+    font-size: 0.75rem;
+    text-align: right; 
+    margin-top: 5px;
+}
+
+
+.messageBubbleUser .messageTime {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.messageBubbleSafePix .messageTime {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.inputArea {
+    display: flex;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.messageInput {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.messageInput:focus {
+    border-color: #904792;
+}
+
+.sendButton {
+    background-color: #7e3ff2;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sendButton:hover {
+    background-color: #5700f8;
+}
+
+
+@media (max-width: 768px) {
+    .chatContainer {
+        padding: 15px;
+        height: 500px; 
+    }
+
+    .messageBubble {
+        max-width: 95%;
+        padding: 8px 12px;
+    }
+
+    .pageTitle {
+        font-size: 1.7rem;
+    }
+
+    .inputArea {
+        flex-direction: column; /* Em telas muito pequenas, empilha input e botão */
+        gap: 8px;
+    }
+
+    .sendButton {
+        width: 100%; /* Botão ocupa toda a largura */
+    }
+}
+
+@media (max-width: 480px) {
+    .duvidasSection {
+        padding: 20px 10px;
+    }
+    .pageTitle {
+        font-size: 1.5rem;
+    }
+    .chatContainer {
+        padding: 10px;
+        gap: 10px;
+        height: 450px;
+    }
+    .messageText {
+        font-size: 0.9rem;
+    }
+    .messageTime {
+        font-size: 0.7rem;
+    }
+}

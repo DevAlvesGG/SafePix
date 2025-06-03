@@ -16,6 +16,7 @@ function Header() {
                 <Link to="/sobre">Sobre</Link>
                 <Link to="/denuncia">Denúncia</Link>
                 <Link to="/verificar">Verificar</Link>
+                <Link to="/duvidas" className={styles.link}>Dúvidas</Link>
             </nav>
         </header>
     );

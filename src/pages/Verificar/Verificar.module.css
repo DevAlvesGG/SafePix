@@ -80,15 +80,15 @@
   .unreliableDetails {
     margin-top: 15px;
     padding: 15px;
-    border: 1px solid #fbc02d; /* Cor da borda amarela */
-    background-color: #fffde7; /* Cor de fundo amarela clara */
+    border: 1px solid #fbc02d; 
+    background-color: #fffde7; 
     border-radius: 5px;
 }
 
 .unreliableMessage {
-    color: #d32f2f; /* Cor do texto vermelho */
+    color: #d32f2f; 
     font-weight: bold;
-    background-color: #ffe0e0; /* Fundo vermelho claro para a mensagem de atenção */
+    background-color: #ffe0e0; 
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 15px;
@@ -96,13 +96,13 @@
 }
 
 .statusUnreliable {
-    color: #d32f2f; /* Vermelho forte para "Não Confiável" */
+    color: #d32f2f; 
     font-weight: bold;
-    /* Você pode adicionar um tamanho de fonte maior, ou sombra de texto se quiser */
+  
 }
 
 .statusReliable {
-    color: #2e7d32; /* Verde forte para "Confiável" */
+    color: #2e7d32; 
     font-weight: bold;
 }
 

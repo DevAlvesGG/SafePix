@@ -1,29 +1,75 @@
-// src/db/connection.js
-const { MongoClient, ServerApiVersion } = require('mongodb'); // Usar require
 
-// Mantenha esta URL em uma variável de ambiente (ex: .env) para segurança em produção!
-const uri = process.env.MONGODB_URI; // Sua string de conexão completa
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
-// Crie um MongoClient com um objeto MongoClientOptions para definir o Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
+const uri = process.env.MONGODB_URI;
 
-async function connectToDatabase() {
-  try {
-    await client.connect();
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-    return client.db("denunciasPix");
-  } catch (error) {
-    console.error("Erro ao conectar ao MongoDB:", error);
-    await client.close();
-    process.exit(1);
-  }
+if (!uri) {
+    console.error("ERRO: Variável de ambiente MONGODB_URI não definida. Por favor, adicione-a ao seu arquivo .env na pasta src/back/.");
+    process.exit(1); 
 }
 
-module.exports = connectToDatabase; // Usar module.exports
+
+const client = new MongoClient(uri, {
+    serverApi: {
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
+    },
+    
+    
+    
+    tlsAllowInvalidCertificates: true,
+    tlsAllowInvalidHostnames: TextTrackCue
+});
+
+let dbInstance;
+
+async function connectToDatabase() {
+    if (dbInstance) {
+        console.log("Já conectado ao MongoDB. Reutilizando conexão.");
+        return dbInstance;
+    }
+    try {
+        console.log("Iniciando conexão com o MongoDB...");
+       
+        await client.connect();
+       
+        await client.db("admin").command({ ping: 1 });
+        console.log("Conexão bem-sucedida ao MongoDB!");
+
+
+        dbInstance = client.db("SafePixDB");
+        return dbInstance;
+    } catch (error) {
+        console.error("Erro ao conectar ao MongoDB:", error);
+        throw error;
+    }
+}
+
+
+function getDb() {
+    if (!dbInstance) {
+        throw new Error("Cliente MongoDB não está conectado. Chame connectToDatabase primeiro.");
+    }
+    return dbInstance;
+}
+
+
+async function closeConnection() {
+    if (client) {
+        try {
+            await client.close();
+            console.log("Conexão com o MongoDB fechada.");
+            dbInstance = null;
+        } catch (error) {
+            console.error("Erro ao fechar a conexão do MongoDB:", error);
+        }
+    }
+}
+
+
+module.exports = {
+    connectToDatabase,
+    getDb,
+    closeConnection
+};

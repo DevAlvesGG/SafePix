@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'; // Importar useState e useRef
+import React, { useState, useRef } from 'react'; 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Container from '../../components/Container';
@@ -7,33 +7,33 @@ import { useNavigate } from 'react-router-dom';
 
 function Denuncia() {
     const navigate = useNavigate();
-    const formRef = useRef(null); // Ref para o formulário
+    const formRef = useRef(null);
 
-    // Estados para os campos do formulário
+  
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [dataNascimento, setDataNascimento] = useState('');
     const [genero, setGenero] = useState('');
-    const [chavePix, setChavePix] = useState(''); // Estado para o campo 'Denunciar Pix'
+    const [chavePix, setChavePix] = useState('');
     const [motivo, setMotivo] = useState('');
     const [comentario, setComentario] = useState('');
 
-    const handleSubmit = async (e) => { // Tornar a função assíncrona
+    const handleSubmit = async (e) => { 
         e.preventDefault();
 
-        // Coletar todos os dados dos estados
+       
         const denunciaData = {
             nome,
             sobrenome,
             dataNascimento,
             genero,
-            chavePix, // O nome do campo no backend é 'chavePix'
+            chavePix,
             motivo,
             comentario
         };
 
         try {
-            const response = await fetch('http://localhost:4000/denunciarPix', {
+            const response = await fetch('http://localhost:4000/api/denunciarPix', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -46,12 +46,11 @@ function Denuncia() {
             if (response.ok) {
                 alert('Sua denúncia foi realizada com Sucesso! Volte para página Home ou realize outra denúncia. Obrigado !');
                 console.log('Resposta da API:', data);
-                // Limpar o formulário após o sucesso
+                
                 if (formRef.current) {
-                    formRef.current.reset(); // Reseta os campos do formulário
+                    formRef.current.reset();
                 }
-                // Ou resetar os estados manualmente se preferir:
-                // setNome(''); setSobrenome(''); setChavePix(''); etc.
+                
             } else {
                 alert(`Erro ao registrar denúncia: ${data.message || 'Erro desconhecido'}`);
                 console.error('Erro na resposta da API:', data);
@@ -70,7 +69,7 @@ function Denuncia() {
                     <h2>Denúnciar uma chave Pix</h2>
                     <img className={styles.imgLogo} src="/Logofinal.png" alt="Imagem da logo" />
 
-                    <form onSubmit={handleSubmit} ref={formRef}> {/* Associar a ref ao formulário */}
+                    <form onSubmit={handleSubmit} ref={formRef}> {}
                         <div className={styles.formGroup}>
                             <label htmlFor="nome">Nome</label>
                             <input
@@ -140,11 +139,11 @@ function Denuncia() {
                         </div>
 
                         <div className={styles.formGroup}>
-                            <label htmlFor="pix">Denunciar Pix</label> {/* Corrigido o label para "Denunciar Pix" */}
+                            <label htmlFor="pix">Denunciar Pix</label> {}
                             <input
                                 type="text"
-                                id="pix" // ID do campo Pix
-                                name="chavePix" // Nome do campo que corresponde ao backend
+                                id="pix" 
+                                name="chavePix" 
                                 placeholder="Digite a chave Pix"
                                 value={chavePix}
                                 onChange={(e) => setChavePix(e.target.value)}

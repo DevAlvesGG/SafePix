@@ -5,18 +5,19 @@ import Footer from '../../components/Footer';
 import Container from '../../components/Container';
 import styles from './Verificar.module.css';
 
+
 function Verificar() {
     const [pixKey, setPixKey] = useState('');
     const [result, setResult] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    // --- Campos adicionais que não serão enviados para a API de verificação ---
+ 
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [dataNascimento, setDataNascimento] = useState('');
     const [genero, setGenero] = useState('');
-    // -----------------------------------------------------------------------
+    
 
     const handleVerifyPix = async (e) => {
         e.preventDefault();
@@ -32,8 +33,11 @@ function Verificar() {
         setError(null);
 
         try {
-            const response = await fetch(`http://localhost:4000/verificarPix/${pixKey}`);
+            const response = await fetch(`http://localhost:4000/api/verificarPix/${pixKey}`);
             const data = await response.json();
+
+            
+            console.log("Resposta da API de verificação:", data);
 
             if (response.ok) {
                 setResult(data);
@@ -48,14 +52,15 @@ function Verificar() {
         }
     };
 
-    // Função auxiliar para determinar a classe do status
+   
     const getStatusClass = (status) => {
-        if (status === 'Nao Confiável') {
-            return styles.statusUnreliable;
-        } else if (status === 'Confiável') {
-            return styles.statusReliable;
+        
+        if (status === 'Denunciada') {
+            return styles.statusUnreliable; 
+        } else if (status === 'Não Denunciada') {
+            return styles.statusReliable; 
         }
-        return ''; // Retorna vazio se não for nenhum dos dois
+        return ''; 
     };
 
     return (
@@ -160,17 +165,19 @@ function Verificar() {
 
                     {result && (
                         <div className={styles.verificationResult}>
-                            {/* APLICANDO CLASSE DINÂMICA AQUI */}
+                            {}
                             <h3 className={getStatusClass(result.status)}>
                                 Status da Chave Pix: {result.status}
                             </h3>
 
-                            {result.status === 'Nao Confiável' ? (
+                            {}
+                            {result.status === 'Denunciada' ? (
                                 <div className={styles.unreliableDetails}>
                                     <p className={styles.unreliableMessage}>
                                         **Atenção:** Esta chave Pix possui denúncias em nosso sistema e não é considerada confiável.
                                     </p>
                                     <p><strong>Total de Denúncias:</strong> {result.denuncias}</p>
+                                    {}
                                     <p><strong>Último Motivo de Denúncia:</strong> {result.motivoUltimaDenuncia}</p>
                                     {result.comentarioUltimaDenuncia && (
                                         <p><strong>Comentário da Última Denúncia:</strong> {result.comentarioUltimaDenuncia}</p>
@@ -180,7 +187,7 @@ function Verificar() {
                                     {result.dataNascimento && <p><strong>Data de Nascimento (Registrado na Denúncia):</strong> {new Date(result.dataNascimento).toLocaleDateString()}</p>}
                                     {result.genero && <p><strong>Gênero (Registrado na Denúncia):</strong> {result.genero}</p>}
                                 </div>
-                            ) : (
+                            ) : ( 
                                 <p className={styles.reliableMessage}>
                                     Esta chave Pix não possui denúncias em nosso sistema e é considerada confiável, com base nas informações disponíveis.
                                 </p>

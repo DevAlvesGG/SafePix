@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Sobre from './pages/Sobre';
 import Denuncia from './pages/Denuncia';
 import Verificar from './pages/Verificar';
+import Duvidas from './pages/Duvidas'; 
 
 
 function AppRoutes(){
@@ -13,6 +14,7 @@ function AppRoutes(){
             <Route path='/sobre' element={<Sobre /> }></Route>
             <Route path='/denuncia' element={<Denuncia /> }></Route>
             <Route path='/verificar' element={<Verificar /> }></Route>
+            <Route path='/duvidas' element={<Duvidas /> }></Route>
         </Routes>
         </BrowserRouter> 
     )
