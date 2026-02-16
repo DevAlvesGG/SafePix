@@ -5,6 +5,8 @@
     const cors = require('cors');
     const { GoogleGenerativeAI } = require('@google/generative-ai');
 
+    const errorHandler = require('./middlewares/errorHandler');
+
     const { connectToDatabase, getDb, closeConnection } = require('../db/connection');
 
     const { denouncePixKey, checkPixKeyStatus } = require('../services/pixService.js');
@@ -100,6 +102,8 @@
     app.get('/', (req, res) => {
         res.send('Servidor SafePix Backend está funcionando!');
     });
+
+    app.use(errorHandler);
 
     async function startServer() {
         console.log("Iniciando servidor SafePix Backend...");
