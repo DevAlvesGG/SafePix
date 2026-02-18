@@ -9,7 +9,6 @@
 
     const { connectToDatabase, closeConnection } = require('../config/database');
 
-    const { denouncePixKey, checkPixKeyStatus } = require('./services/pixService.js');
 
 
     const app = express();
@@ -60,43 +59,16 @@
         }
     });
 
-
-    app.post('/api/denunciarPix', async (req, res) => {
-        const { chavePix, nome, sobrenome, dataNascimento, genero, motivo, comentario } = req.body;
-
-        if (!chavePix || !motivo) {
-            return res.status(400).json({ message: 'Chave Pix e Motivo da Denúncia são obrigatórios.' });
-        }
-
-        try {
-
-            const result = await denouncePixKey(chavePix, {
-                nome, sobrenome, dataNascimento, genero, motivo, comentario
-            });
-            res.status(200).json({ message: 'Denúncia registrada com sucesso!', data: result });
-        } catch (error) {
-            console.error('Erro na rota /api/denunciarPix:', error);
-            res.status(500).json({ message: 'Erro interno do servidor ao processar a denúncia.', error: error.message });
-        }
-    });
+    // rotas de denúncia agora estão em arquivo separado
+    const denunciaRoutes = require('./routes/denunciaRoutes');
+    app.use('/api', denunciaRoutes);
 
 
-    app.get('/api/verificarPix/:chavePix', async (req, res) => {
-        const { chavePix } = req.params;
 
-        if (!chavePix) {
-            return res.status(400).json({ message: 'Chave Pix é obrigatória para verificação.' });
-        }
 
-        try {
 
-            const status = await checkPixKeyStatus(chavePix);
-            res.status(200).json(status);
-        } catch (error) {
-            console.error('Erro na rota /api/verificarPix:', error);
-            res.status(500).json({ message: 'Erro interno do servidor ao verificar o status da chave Pix.', error: error.message });
-        }
-    });
+
+
 
 
 
