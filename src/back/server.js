@@ -7,9 +7,10 @@
 
     const errorHandler = require('./middlewares/errorHandler');
 
-    const { connectToDatabase, getDb, closeConnection } = require('../db/connection');
+    const { connectToDatabase, closeConnection } = require('../config/database');
 
-    const { denouncePixKey, checkPixKeyStatus } = require('../services/pixService.js');
+    const { denouncePixKey, checkPixKeyStatus } = require('./services/pixService.js');
+
 
     const app = express();
     const port = process.env.PORT || 4000;
