@@ -56,7 +56,4 @@ async function verificarStatusPix(req, res) {
     }
 }
 
-module.exports = {
-    criarDenuncia,
-    verificarStatusPix
-}
+module.exports = { criarDenuncia, verificarStatusPix };
