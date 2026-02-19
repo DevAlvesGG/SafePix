@@ -18,7 +18,7 @@ async function connectToDatabase() {
     });
     
     await mongoClient.connect();
-    dbInstance = mongoClient.db('SafePixDb');
+    dbInstance = mongoClient.db('SafePixDB');
     return dbInstance;
 
 } catch (error) {
