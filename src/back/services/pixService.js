@@ -40,7 +40,6 @@ async function checkPixKeyStatus(pixKey) {
                 { chavePix: pixKey },
                 { sort: { dataDenuncia: -1 } } 
             );
-
             
             return {
                 status: 'Denunciada',
@@ -49,9 +48,7 @@ async function checkPixKeyStatus(pixKey) {
                 comentarioUltimaDenuncia: lastDenuncia.comentario,
                 ultimaDenuncia: lastDenuncia.dataDenuncia,
                 nome: lastDenuncia.nome, 
-                sobrenome: lastDenuncia.sobrenome,
-                dataNascimento: lastDenuncia.dataNascimento, 
-                genero: lastDenuncia.genero 
+                sobrenome: lastDenuncia.sobrenome, 
             };
         } else {
             
