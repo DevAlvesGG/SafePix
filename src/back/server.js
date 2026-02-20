@@ -1,39 +1,20 @@
 
     require('dotenv').config({ path: './.env' });
-
     const express = require('express');
     const cors = require('cors');
     const errorHandler = require('./middlewares/errorHandler');
-
-    const { connectToDatabase, closeConnection } = require('./config/database');
-
-
-
+    const { connectToDatabase, closeConnectionToDatabase } = require('./config/database');
+    const denunciaRoutes = require('./routes/denunciaRoutes');
+    const apiRoutes = require('./routes/apiRoutes');
+    
     const app = express();
     const port = process.env.PORT || 4000;
 
-
     app.use(express.json()); 
     app.use(cors());
-
-    // demais rotas da API foram extraídas para um arquivo próprio para manter server.js mais enxuto
-    const apiRoutes = require('./routes/apiRoutes');
-    app.use('/api', apiRoutes);
-
-    // rotas de denúncia agora estão em arquivo separado
-    const denunciaRoutes = require('./routes/denunciaRoutes');
+    
     app.use('/api', denunciaRoutes);
-
-    // outras rotas específicas podem ser adicionadas abaixo ou em arquivos próprios
-
-
-
-
-
-
-
-
-
+    app.use('/api', apiRoutes);
 
     app.get('/', (req, res) => {
         res.send('Servidor SafePix Backend está funcionando!');
@@ -59,8 +40,8 @@
     startServer();
 
     process.on('SIGINT', async () => {
-        console.log('\nDesligamento do servidor detectado (SIGINT). Fechando conexão com o banco de dados...');
-        await closeConnection(); 
+        console.log('\nDesligamento do servidor. Fechando conexão com o banco de dados...');
+        await closeConnectionToDatabase(); 
         process.exit(0);
     });
 
