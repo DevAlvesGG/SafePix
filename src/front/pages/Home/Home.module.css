@@ -1,0 +1,60 @@
+.home {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+
+}
+
+
+.apresentacao,
+.home figure {
+    position: relative;
+    z-index: 1;
+}
+
+.home img {
+    height: 800px;
+
+}
+
+.home p {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: white;
+
+}
+
+.home span {
+    font-size: 5rem;
+    color: #7e3ff2;
+    font-weight: bold;
+
+}
+
+.btn {
+    width: 250px;
+    height: 50px;
+    font-size: 1.125rem;
+    font-weight: bold;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.btn_roxo {
+    background-color: #7e3ff2;
+    color: black;
+    cursor: pointer;
+}
+
+.btn_roxo:hover {
+    background-color: rgb(255, 255, 255);
+    text-decoration: underline;
+    color: #7e3ff2;
+}
