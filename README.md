@@ -1,17 +1,3 @@
-
-# Projeto SafePix
-
-## Integrantes do Grupo
-
-- **Gabriel Cosmo de Lima** – RA: 824135713  
-- **Gabriel Mantoani Sobral** – RA: 824122236  
-- **Gustavo Alves Garcia** – RA: 824114167  
-- **Lucas Rodrigues de Laia** – RA: 824140963  
-- **Rychard Alves da Silva** – RA: 824148212  
-   
-
----
-
 ## Sobre o projeto
 
 SafePix é um sistema acadêmico desenvolvido por mim durante um projeto de curso. A aplicação permite o envio e verificação de denúncias via interface web, simulando um serviço de pixelização seguro. O foco principal é demonstrar conhecimentos de frontend e backend em um ambiente Node.js/React.
