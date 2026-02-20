@@ -1,9 +1,7 @@
 // C:\Projeto A3\SafePix\src\pages\Duvidas\index.jsx
 import React, { useState, useEffect, useRef } from 'react';
-import Header from './../../components/Header';
-import Footer from './../../components/Footer';
-import Container from './../../components/Container';
 import styles from './Duvidas.module.css';
+import Layout from '../../components/Layout';
 
 function Duvidas() {
     const [messages, setMessages] = useState([
@@ -94,8 +92,7 @@ function Duvidas() {
 
     return (
         <>
-            <Header />
-            <Container>
+            <Layout>
                 <section className={styles.duvidasSection}>
                     <h2 className={styles.pageTitle}>Chat de Dúvidas</h2>
                     <div className={styles.chatContainer}>
@@ -139,8 +136,7 @@ function Duvidas() {
                         </form>
                     </div>
                 </section>
-            </Container>
-            <Footer />
+            </Layout>
         </>
     );
 }

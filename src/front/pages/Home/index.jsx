@@ -1,13 +1,11 @@
-import Header from './../../components/Header'
-import Footer from './../../components/Footer'
 import { Link } from 'react-router-dom'
-import Container from './../../components/Container'
 import styles from './Home.module.css'
+import Layout from '../../components/Layout'
+
 function Home() {
     return (
         <>
-            <Header />
-            <Container>
+            <Layout>
                 <section className={styles.home}>
 
                     <div className={styles.apresentacao}>
@@ -19,17 +17,15 @@ function Home() {
                             Saiba Mais sobre mim
                         </Link>
                     </div>
+
                     <figure>
                         <img className='img-logo' src="/Logofinal.png" alt="Imagem da logo" />
                     </figure>
 
                 </section>
-            </Container>
-            <Footer />
+            </Layout>
         </>
     )
-
-
 }
 
 export default Home

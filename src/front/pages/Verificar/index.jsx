@@ -1,10 +1,7 @@
 // src/pages/Verificar/Verificar.jsx
 import React, { useState } from 'react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Container from '../../components/Container';
 import styles from './Verificar.module.css';
-
+import Layout from '../../components/Layout';
 
 function Verificar() {
     const [pixKey, setPixKey] = useState('');
@@ -65,8 +62,7 @@ function Verificar() {
 
     return (
         <>
-            <Header />
-            <Container>
+            <Layout>
                 <div className={styles.formContainer}>
                     <h2>Verificar se o Pix é Confiável</h2>
                     <img className={styles.imgLogo} src="/Logofinal.png" alt="Imagem da logo" />
@@ -193,8 +189,7 @@ function Verificar() {
                         </div>
                     )}
                 </div>
-            </Container>
-            <Footer />
+            </Layout>
         </>
     );
 }

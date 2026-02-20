@@ -1,9 +1,7 @@
 import React, { useState, useRef } from 'react'; 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Container from '../../components/Container';
 import styles from './Denuncia.module.css';
 import { useNavigate } from 'react-router-dom';
+import Layout from '../../components/Layout';
 
 function Denuncia() {
     const navigate = useNavigate();
@@ -63,8 +61,7 @@ function Denuncia() {
 
     return (
         <>
-            <Header />
-            <Container>
+            <Layout>
                 <div className={styles.formContainer}>
                     <h2>Denúnciar uma chave Pix</h2>
                     <img className={styles.imgLogo} src="/Logofinal.png" alt="Imagem da logo" />
@@ -183,8 +180,7 @@ function Denuncia() {
                         </div>
                     </form>
                 </div>
-            </Container>
-            <Footer />
+            </Layout>
         </>
     );
 }

@@ -1,12 +1,10 @@
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-import Container from '../../components/Container'
 import styles from './Sobre.module.css'
+import Layout from '../../components/Layout'
+
 function Sobre() {
     return (
         <>
-            <Header />
-            <Container>
+            <Layout>
                 <section className={styles.sobre}>
                     <div className={styles.box1}>
                         <span className={styles.nos}>SOBRE NÓS</span>
@@ -36,8 +34,7 @@ function Sobre() {
                         </p>
                     </div>
                 </section>
-            </Container>
-            <Footer />
+            </Layout>
         </>
     )
 }
