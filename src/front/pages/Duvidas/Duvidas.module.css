@@ -11,8 +11,8 @@
 .pageTitle {
     text-align: center;
     margin-bottom: 2rem;
-    color: #333;
-    border-bottom: 2px solid #7e3ff2;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--accent-primary);
     padding-bottom: 0.5rem;
     font-size: 2rem;
 }
@@ -20,7 +20,7 @@
 .chatContainer {
     width: 100%;
     max-width: 800px;
-    background-color: #f0f0f0;
+    background-color: var(--bg-light-gray);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -80,14 +80,14 @@
 
 
 .messageBubbleUser .messageBubble {
-    background-color: #7e3ff2;
+    background-color: var(--accent-primary);
     color: #fff;
     border-radius: 18px 18px 2px 18px;
 }
 
 .messageBubbleSafePix .messageBubble {
-    background-color: #e0e0e0;
-    color: #333;
+    background-color: var(--bg-disabled);
+    color: var(--text-secondary);
     border-radius: 18px 18px 18px 2px; 
 }
 
@@ -95,7 +95,6 @@
     margin: 0;
     font-size: 0.95rem;
     line-height: 1.4;
-    font-family: 'Roboto', sans-serif;
 }
 
 .messageTime {
@@ -125,31 +124,15 @@
 .messageInput {
     flex-grow: 1;
     padding: 10px 15px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-gray);
     border-radius: 20px;
     font-size: 1rem;
     outline: none;
 }
 
 .messageInput:focus {
-    border-color: #904792;
+    border-color: var(--accent-primary);
 }
-
-.sendButton {
-    background-color: #7e3ff2;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.sendButton:hover {
-    background-color: #5700f8;
-}
-
 
 @media (max-width: 768px) {
     .chatContainer {
