@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import styles from './Verificar.module.css';
 import Layout from '../../components/Layout';
+import Button from '../../components/Button/Button';   // ajuste o caminho
+import Card   from '../../components/Card/Card';
 
 function Verificar() {
     const [pixKey, setPixKey] = useState('');
@@ -63,7 +65,7 @@ function Verificar() {
     return (
         <>
             <Layout>
-                <div className={styles.formContainer}>
+                <Card className={styles.formContainer}>
                     <h2>Verificar se o Pix é Confiável</h2>
                     <img className={styles.imgLogo} src="/Logofinal.png" alt="Imagem da logo" />
                     <form onSubmit={handleVerifyPix}>
@@ -151,16 +153,16 @@ function Verificar() {
                             />
                         </div>
 
-                        <button type="submit" className={styles.btnVerificar} disabled={loading}>
+                        <Button type="submit" className={styles.btn_fullwidth} disabled={loading}>
                             {loading ? 'Verificando...' : 'Verificar'}
-                        </button>
+                        </Button>
                     </form>
 
                     {loading && <p className={styles.loadingMessage}>Carregando resultados...</p>}
                     {error && <p className={styles.errorMessage}>Erro: {error}</p>}
 
                     {result && (
-                        <div className={styles.verificationResult}>
+                        <Card className={styles.verificationResult}>
                             { }
                             <h3 className={getStatusClass(result.status)}>
                                 Status da Chave Pix: {result.status}
@@ -186,9 +188,9 @@ function Verificar() {
                                     Esta chave Pix não possui denúncias em nosso sistema e é considerada confiável, com base nas informações disponíveis.
                                 </p>
                             )}
-                        </div>
+                        </Card>
                     )}
-                </div>
+                </Card>
             </Layout>
         </>
     );

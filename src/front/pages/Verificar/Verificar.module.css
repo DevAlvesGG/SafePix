@@ -1,5 +1,5 @@
 .formContainer {
-    background-color: #e1d1fd;
+    background-color: var(--accent-light);
     padding: 30px;
     border-radius: 10px;
     width: 100%;
@@ -11,8 +11,8 @@
   .formContainer h2 {
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #333;
-    border-bottom: 2px solid #7e3ff2;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--accent-primary);
     margin-bottom: 0.5rem;
   }
    
@@ -23,7 +23,7 @@
   .formGroup label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #444;
+    color: var(--text-tertiary);
     font-weight: bold;
   }
   
@@ -31,14 +31,14 @@
   .formGroup input[type="date"] {
     width: 100%;
     padding: 0.6rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-gray);
     border-radius: 8px;
     font-size: 1rem;
     outline: none;
   }
   
   .formGroup input:focus {
-    border-color: #904792;
+    border-color: var(--accent-primary);
   }
   
   .genderOptions {
@@ -54,21 +54,12 @@
     font-weight: normal;
   }
   
-  .btnVerificar {
-    background-color: #7e3ff2;
-    color: #fff;
-    padding: 0.75rem;
+  /* Button uses shared component styles; provide helper for full width */
+  .btn_fullwidth {
     width: 100%;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
     margin-top: 1.5rem;
-    transition: background-color 0.3s;
-  }
-  
-  .btnVerificar:hover {
-    background-color: #5700f8;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
   .imgLogo {
     display: block;
@@ -80,8 +71,8 @@
   .unreliableDetails {
     margin-top: 15px;
     padding: 15px;
-    border: 1px solid #fbc02d; 
-    background-color: #fffde7; 
+    border: 1px solid var(--error-border); 
+    background-color: var(--warning-bg); 
     border-radius: 5px;
 }
 
@@ -91,26 +82,26 @@
 
 .unreliableMessage {
     font-weight: bold;
-    background-color: #ffe0e0; 
+    background-color: var(--error-bg); 
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 15px;
-    border: 1px dashed #d32f2f;
+    border: 1px dashed var(--error-text);
 }
 
 .statusUnreliable {
-    color: #d32f2f; 
+    color: var(--error-text); 
     font-weight: bold;
   
 }
 
 .statusReliable {
-    color: #2e7d32; 
+    color: var(--success-text); 
     font-weight: bold;
 }
 
 .reliableMessage{
-  color: #2e7d32;
+  color: var(--success-text);
   margin-top: 1rem;
   font-weight: bold;
 }
