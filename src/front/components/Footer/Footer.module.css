@@ -1,19 +1,64 @@
 .footer {
-  width: 100%;
-  height: 50px;
-  background-color: #7e3ff2;
-  color: rgb(255, 255, 255);
-  font-size: 25px;
+    background-color: #8B5CF6; /* Roxo da marca */
+    color: #ffffff;
+    width: 100%;
+     /* Empurra o footer para baixo da mascote */
+    position: relative;
+    clear: both;
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.footerContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: flex; /* Alinha as colunas lado a lado */
+    justify-content: space-between;
+    gap: 40px;
+}
 
-  margin: 0;
-  padding: 0;
+.footerCol {
+    flex: 1;
+}
 
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
+.footerCol h4 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 10px;
+}
+
+.footerCol ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footerCol ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    line-height: 2;
+}
+
+.footerCol ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.contactEmail {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footerBottom {
+    background-color: rgba(0, 0, 0, 0.2); /* Tom mais escuro para o rodapé final */
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.bottomContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
 }
