@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
 import Layout from '../../components/Layout'
+import Button from '../../components/Button/Button';
 
 function Home() {
     return (
@@ -13,9 +14,9 @@ function Home() {
                             <span>SafePix</span> <br />
                             Ajudando você
                         </p>
-                        <Link to='/sobre' className={`${styles.btn} ${styles.btn_roxo}`}>
+                        <Button as={Link} to='/sobre' className={styles.btn_custom}>
                             Saiba Mais sobre mim
-                        </Link>
+                        </Button>
                     </div>
 
                     <figure>

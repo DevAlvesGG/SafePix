@@ -1,12 +1,15 @@
 import styles from './Sobre.module.css'
 import Layout from '../../components/Layout'
+import Button from '../../components/Button/Button';   // ajuste o caminho
+import Card   from '../../components/Card/Card';
 
 function Sobre() {
     return (
         <>
             <Layout>
                 <section className={styles.sobre}>
-                    <div className={styles.box1}>
+                    
+                    <Card className={styles.box1}>
                         <span className={styles.nos}>SOBRE NÓS</span>
                         <p className={styles.texto1}>
                             Na SafePix, nossa missão é proteger pessoas contra golpes envolvendo o Pix. Somos uma plataforma independente que permite o registro e a consulta de denúncias públicas de fraudes.
@@ -14,16 +17,16 @@ function Sobre() {
                             A SafePix não substitui a atuação da polícia ou de órgãos judiciais. Não realizamos investigações e não emitimos julgamentos. Somos uma ferramenta de apoio à prevenção de fraudes, promovendo transparência e conscientização.
 
                         </p>
-                    </div>
-                    <div className={styles.box2}>
+                    </Card>
+                    <Card className={styles.box2}>
                         <span className={styles.objetivo}>NOSSOS OBJETIVOS</span>
                         <p className={styles.texto2}>
                             Queremos fortalecer a confiança no uso do Pix, proporcionando aos usuários acesso rápido a informações públicas sobre denúncias de golpes. Nosso objetivo é atuar como um elo entre as pessoas e a segurança digital, sem prejudicar empresas ou instituições legítimas.
 
 
                         </p>
-                    </div>
-                    <div className={styles.box3}>
+                    </Card>
+                    <Card className={styles.box3}>
                         <span className={styles.valores}>NOSSOS VALORES</span>
                         <p className={styles.texto3}>
                             •	Transparência: Informações claras, respeitando a veracidade e os direitos de todos.<br />
@@ -32,7 +35,7 @@ function Sobre() {
                             •	Colaboração: Acreditamos na união entre pessoas, empresas, bancos e autoridades para combater fraudes.<br />
                             •	Responsabilidade Legal: Operamos com respeito às leis vigentes, garantindo que nossos serviços não comprometam a integridade de investigações oficiais ou prejudiquem terceiros.
                         </p>
-                    </div>
+                    </Card>
                 </section>
             </Layout>
         </>

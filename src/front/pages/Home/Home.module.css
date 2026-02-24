@@ -22,39 +22,29 @@
 .home p {
     font-size: 5rem;
     margin-bottom: 1rem;
-    color: white;
-
+    color: rgb(55, 48, 48);
+    font-weight: normal;
 }
 
 .home span {
     font-size: 5rem;
-    color: #7e3ff2;
+    color: var(--accent-primary);
     font-weight: bold;
-
 }
 
-.btn {
+.btn_custom {
     width: 250px;
     height: 50px;
     font-size: 1.125rem;
-    font-weight: bold;
-    border: 0;
-    border-radius: 8px;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    color: #000;
 }
 
-.btn_roxo {
-    background-color: #7e3ff2;
-    color: black;
-    cursor: pointer;
-}
-
-.btn_roxo:hover {
+.btn_custom:hover {
     background-color: rgb(255, 255, 255);
     text-decoration: underline;
-    color: #7e3ff2;
+    color: var(--accent-primary);
 }

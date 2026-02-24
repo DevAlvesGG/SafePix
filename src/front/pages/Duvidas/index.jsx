@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './Duvidas.module.css';
 import Layout from '../../components/Layout';
+import Button from '../../components/Button/Button';   // ajuste o caminho
+import Card from '../../components/Card/Card';
 
 function Duvidas() {
     const [messages, setMessages] = useState([
@@ -13,7 +15,7 @@ function Duvidas() {
     ]);
 
     const [inputMessage, setInputMessage] = useState('');
-    const [isLoading, setIsLoading] = useState(false); 
+    const [isLoading, setIsLoading] = useState(false);
 
     const messagesEndRef = useRef(null);
 
@@ -25,7 +27,7 @@ function Duvidas() {
         scrollToBottom();
     }, [messages]);
 
-    const handleSendMessage = async (e) => { 
+    const handleSendMessage = async (e) => {
         e.preventDefault();
 
         if (inputMessage.trim() === '') {
@@ -42,14 +44,14 @@ function Duvidas() {
             time: currentTime
         };
 
-        
+
         setMessages((prevMessages) => [...prevMessages, newUserMessage]);
-        setInputMessage(''); 
-        setIsLoading(true); 
+        setInputMessage('');
+        setIsLoading(true);
 
         try {
-            
-            const response = await fetch('http://localhost:4000/api/chat', { 
+
+            const response = await fetch('http://localhost:4000/api/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -58,22 +60,22 @@ function Duvidas() {
             });
 
             if (!response.ok) {
-                
+
                 const errorData = await response.json();
                 throw new Error(errorData.error || `Erro HTTP: ${response.status}`);
             }
 
             const data = await response.json();
-            const botResponseText = data.response; 
+            const botResponseText = data.response;
 
             const botMessage = {
-                id: messages.length + 2, 
+                id: messages.length + 2,
                 sender: 'SafePix',
                 text: botResponseText,
                 time: new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
             };
 
-            
+
             setMessages((prevMessages) => [...prevMessages, botMessage]);
 
         } catch (error) {
@@ -86,7 +88,7 @@ function Duvidas() {
             };
             setMessages((prevMessages) => [...prevMessages, errorMessage]);
         } finally {
-            setIsLoading(false); 
+            setIsLoading(false);
         }
     };
 
@@ -95,14 +97,13 @@ function Duvidas() {
             <Layout>
                 <section className={styles.duvidasSection}>
                     <h2 className={styles.pageTitle}>Chat de Dúvidas</h2>
-                    <div className={styles.chatContainer}>
+                    <Card className={styles.chatContainer}>
                         <div className={styles.messagesList}>
                             {messages.map((message) => (
                                 <div
                                     key={message.id}
-                                    className={`${styles.messageBubbleContainer} ${
-                                        message.sender === 'user' ? styles.messageBubbleUser : styles.messageBubbleSafePix
-                                    }`}
+                                    className={`${styles.messageBubbleContainer} ${message.sender === 'user' ? styles.messageBubbleUser : styles.messageBubbleSafePix
+                                        }`}
                                 >
                                     <div className={styles.messageBubble}>
                                         <p className={styles.messageText}>{message.text}</p>
@@ -110,7 +111,7 @@ function Duvidas() {
                                     </div>
                                 </div>
                             ))}
-                            {}
+                            { }
                             {isLoading && (
                                 <div className={`${styles.messageBubbleContainer} ${styles.messageBubbleSafePix}`}>
                                     <div className={styles.messageBubble}>
@@ -118,7 +119,7 @@ function Duvidas() {
                                     </div>
                                 </div>
                             )}
-                            {}
+                            { }
                             <div ref={messagesEndRef} />
                         </div>
                         <form onSubmit={handleSendMessage} className={styles.inputArea}>
@@ -128,13 +129,13 @@ function Duvidas() {
                                 onChange={(e) => setInputMessage(e.target.value)}
                                 placeholder={isLoading ? "Aguardando resposta..." : "Digite sua mensagem..."}
                                 className={styles.messageInput}
-                                disabled={isLoading} 
+                                disabled={isLoading}
                             />
-                            <button type="submit" className={styles.sendButton} disabled={isLoading}>
-                                {isLoading ? "Enviando..." : "Enviar"}
-                            </button>
+                            <Button type="submit" disable={isLoading}>
+                                Enviar
+                            </Button>
                         </form>
-                    </div>
+                    </Card>
                 </section>
             </Layout>
         </>

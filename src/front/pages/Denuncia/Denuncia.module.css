@@ -1,10 +1,8 @@
 .formContainer {
-    background-color: #e1d1fd;
     padding: 2rem;
-    border-radius: 12px;
     width: 100%;
     max-width: 500px;
-    margin: 2rem auto;
+    margin: 2rem auto;  
   }
   
   .imgLogo {
@@ -18,8 +16,8 @@
   h2 {
     text-align: center;
     margin-bottom: none;
-    color: #333;
-    border-bottom: 2px solid #7e3ff2;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--accent-primary);
     margin-bottom: 0.5rem;
   }
   
@@ -32,7 +30,7 @@
   .formGroup label {
     display: block;
     margin-bottom: none;
-    color: #444;
+    color: var(--text-tertiary);
     font-weight: bold;
   }
   
@@ -41,7 +39,7 @@
   .formGroup textarea {
     width: 100%;
     padding: 0.7rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-gray);
     border-radius: 8px;
     font-size: 1rem;
     outline: none;
@@ -67,30 +65,4 @@
     margin-top: none;
   }
   
-  .btnDenuncia,
-  .btnVoltar {
-    flex: 1;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    color: #fff;
-    transition: background-color 0.3s ease;
-  }
   
-  .btnDenuncia {
-    background-color: #7e3ff2;
-  }
-  
-  .btnDenuncia:hover {
-    background-color: #5700f8;
-  }
-  
-  .btnVoltar {
-    background-color: #7e3ff2;
-  }
-  
-  .btnVoltar:hover {
-    background-color: #5700f8;
-  }
