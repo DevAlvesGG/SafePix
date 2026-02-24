@@ -1,0 +1,44 @@
+:root {
+    --primary-color: #0046b5;      /* Azul Segurança */
+    --primary-hover: #00358a;
+    --secondary-color: #00d1b2;    /* Verde/Ciano para detalhes de sucesso/Pix */
+    --bg-color: #f4f7fa;           /* Cinza muito claro para o fundo */
+    --surface-color: #ffffff;      /* Branco para Cards e Containers */
+    --text-main: #1a1a1a;          /* Quase preto para leitura */
+    --text-muted: #64748b;         /* Cinza para textos secundários */
+    --border-color: #e2e8f0;
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    --accent-primary: #7e3ff2;     /* Púrpura principal (botões, links) */
+    --accent-primary-hover: #5700f8; /* Púrpura com hover */
+    --accent-light: #e1d1fd;       /* Lilás claro (fundo de cards/formulários) */
+    --accent-lighter: #9f8ff8;     /* Roxo claro (caixas de conteúdo) */
+    --text-secondary: #333;         /* Cinza escuro para textos secundários */
+    --text-tertiary: #444;          /* Cinza para labels */
+    --bg-light-gray: #f0f0f0;      /* Cinza bem claro (fundo alternativo) */
+    --bg-disabled: #e0e0e0;         /* Cinza desabilitado */
+    --border-gray: #ccc;            /* Cinza para bordas */
+    --error-bg: #ffe0e0;           /* Fundo de erro */
+    --error-border: #fbc02d;        /* Borda de alerta */
+    --warning-bg: #fffde7;         /* Fundo de aviso */
+    --success-text: #2e7d32;        /* Texto de sucesso */
+    --error-text: #d32f2f;          /* Texto de erro */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color) !important; /* Aqui removemos o fundo amador */
+    background-image: none !important; /* Garantindo que nenhuma imagem de fundo seja aplicada */
+    color: var(--text-main);
+    min-height: 100vh; /* Garante que o corpo ocupe toda a altura da tela */
+}
+
+main, section, .container, .wrapper {
+    background-image: none !important;
+    background-color: transparent; 
+}
