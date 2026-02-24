@@ -1,0 +1,9 @@
+.card {
+  background-color: var(--accent-light);
+  border: 1px solid var(--border-gray);
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
