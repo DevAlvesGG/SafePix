@@ -1,13 +1,15 @@
-import React, { useState, useRef } from 'react'; 
+import React, { useState, useRef } from 'react';
 import styles from './Denuncia.module.css';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout';
+import Card from '../../components/Card/Card';
+import Button from '../../components/Button/Button';
 
 function Denuncia() {
     const navigate = useNavigate();
     const formRef = useRef(null);
 
-  
+
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [dataNascimento, setDataNascimento] = useState('');
@@ -16,10 +18,10 @@ function Denuncia() {
     const [motivo, setMotivo] = useState('');
     const [comentario, setComentario] = useState('');
 
-    const handleSubmit = async (e) => { 
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-       
+
         const denunciaData = {
             nome,
             sobrenome,
@@ -44,11 +46,11 @@ function Denuncia() {
             if (response.ok) {
                 alert('Sua denúncia foi realizada com Sucesso! Volte para página Home ou realize outra denúncia. Obrigado !');
                 console.log('Resposta da API:', data);
-                
+
                 if (formRef.current) {
                     formRef.current.reset();
                 }
-                
+
             } else {
                 alert(`Erro ao registrar denúncia: ${data.message || 'Erro desconhecido'}`);
                 console.error('Erro na resposta da API:', data);
@@ -62,11 +64,11 @@ function Denuncia() {
     return (
         <>
             <Layout>
-                <div className={styles.formContainer}>
+                <Card className={styles.formContainer}>
                     <h2>Denúnciar uma chave Pix</h2>
                     <img className={styles.imgLogo} src="/Logofinal.png" alt="Imagem da logo" />
 
-                    <form onSubmit={handleSubmit} ref={formRef}> {}
+                    <form onSubmit={handleSubmit} ref={formRef}> { }
                         <div className={styles.formGroup}>
                             <label htmlFor="nome">Nome</label>
                             <input
@@ -136,11 +138,11 @@ function Denuncia() {
                         </div>
 
                         <div className={styles.formGroup}>
-                            <label htmlFor="pix">Denunciar Pix</label> {}
+                            <label htmlFor="pix">Denunciar Pix</label> { }
                             <input
                                 type="text"
-                                id="pix" 
-                                name="chavePix" 
+                                id="pix"
+                                name="chavePix"
                                 placeholder="Digite a chave Pix"
                                 value={chavePix}
                                 onChange={(e) => setChavePix(e.target.value)}
@@ -175,11 +177,13 @@ function Denuncia() {
                         </div>
 
                         <div className={styles.buttonGroup}>
-                            <button type="submit" className={styles.btnDenuncia}>Denunciar</button>
-                            <button type="button" onClick={() => navigate('/')} className={styles.btnVoltar}>Voltar para Home</button>
+                            <Button type="submit">Denunciar</Button>
+                            <Button variant="secondary" onClick={() => navigate('/')}>
+                                Voltar para Home
+                            </Button>
                         </div>
                     </form>
-                </div>
+                </Card>
             </Layout>
         </>
     );
