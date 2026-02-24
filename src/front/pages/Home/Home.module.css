@@ -22,15 +22,14 @@
 .home p {
     font-size: 5rem;
     margin-bottom: 1rem;
-    color: white;
-
+    color: rgb(55, 48, 48);
+    font-weight: normal;
 }
 
 .home span {
     font-size: 5rem;
     color: var(--accent-primary);
     font-weight: bold;
-
 }
 
 .btn_custom {
