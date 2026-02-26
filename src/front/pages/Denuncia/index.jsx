@@ -8,8 +8,6 @@ import Button from '../../components/Button/Button';
 function Denuncia() {
     const navigate = useNavigate();
     const formRef = useRef(null);
-
-
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [dataNascimento, setDataNascimento] = useState('');
