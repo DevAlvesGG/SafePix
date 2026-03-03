@@ -4,6 +4,7 @@ import Sobre from '../pages/Sobre';
 import Denuncia from '../pages/Denuncia';
 import Verificar from '../pages/Verificar';
 import Duvidas from '../pages/Duvidas';
+import Admin from '../pages/Admin/admin';
 
 function AppRoutes() {
     return (
@@ -14,6 +15,7 @@ function AppRoutes() {
                 <Route path="/denuncia" element={<Denuncia />} />
                 <Route path="/verificar" element={<Verificar />} />
                 <Route path="/duvidas" element={<Duvidas />} />
+                <Route path="/admin" element={<Admin />} />
             </Routes>
         </BrowserRouter>
     );
