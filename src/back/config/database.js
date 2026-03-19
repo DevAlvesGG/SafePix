@@ -1,51 +1,42 @@
-const { MongoClient, ServerApiVersion } = require('mongodb'); 
-
+const { MongoClient } = require('mongodb'); 
 const url = process.env.MONGODB_URL
+if (!url) throw new Error('MONGODB_URL não definida no .env')
 
- if(!url) throw new Error('MONGODB_URL não encontrado.')
-
-let dbInstance = null;
-let mongoClient = null;
+let client = null 
+let dbInstance = null //vai servir para retornar uma instancia ja conectada
 
 async function connectToDatabase() {
     try {
-        mongoClient = new MongoClient(url, {
-        serverApi: {
-            version: ServerApiVersion.v1,
-            strict: true,
-            deprecationErrors: true,
+        if(!client) { //so conecta se ainda não conectou
+            client = new MongoClient(url);
+            await client.connect();
+            dbInstance = client.db("SafePixDB")
+            console.log('Conectado ao MongoDB')
         }
-    });
-    
-    await mongoClient.connect();
-    dbInstance = mongoClient.db('SafePixDB');
-    return dbInstance;
 
-} catch (error) {
-    console.error('Erro ao conectar ao MongoDb')
+        return dbInstance;
+
+    } catch (error) {
+        throw new Error(`Erro ao conectar com o banco: ${error.message}`)
+    }
 }
     
-}
-
-
 function getDb() {
-    if(!dbInstance) throw new Error('DB não encontrado. Conecte-se ao banco de dados primeiro usando connectToDatabase().');
+    if (!dbInstance) throw new Error('Conexão com MongoDB não encontrada, conecte-se ao MongoDB novamente');
 
-    return dbInstance;
+    return dbInstance; 
 }
 
 async function closeConnectionToDatabase() {
     try {
-        if(mongoClient) {
-            await mongoClient.close();
-            mongoClient = null;
+        if(dbInstance) {
+            await client.close();
+            client = null;
+            dbInstance = null;
+            console.log('Conexão com o MongoDB fechada com sucesso.');
         }
-
-        dbInstance = null;
-        console.log('Conexão com o MongoDB fechada com sucesso.');
-
     } catch (error) {
-        console.error('Erro ao fechar a conexão com o mongo DB', error);
+        throw new Error(`Erro ao encerrar a conexão com o MongoDB: ${error.message}`);
     }
 }
 
