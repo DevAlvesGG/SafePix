@@ -1,63 +1,41 @@
-
-    require('dotenv').config({ path: './.env' });
-    const express = require('express');
-    const cors = require('cors');
-    const errorHandler = require('./middlewares/errorHandler');
-    const { connectToDatabase, closeConnectionToDatabase } = require('./config/database');
-    const denunciaRoutes = require('./routes/denunciaRoutes');
-    const apiRoutes = require('./routes/apiRoutes');
+require('dotenv').config({ path: './.env' });
+const express = require('express');
+const cors = require('cors');
+const errorHandler = require('./middlewares/errorHandler');
+const { connectToDatabase, closeConnectionToDatabase } = require('./config/database');
+const complaintRoutes = require('./routes/complaintRoutes');
+const apiRoutes = require('./routes/apiRoutes');
+const authRoutes = require('./routes/authRoutes')
     
-    const app = express();
-    const port = process.env.PORT || 4000;
+const app = express();
+const port = process.env.PORT || 4000;
 
-    app.use(express.json()); 
-    app.use(cors());
+//config para ler json
+app.use(express.json()); 
+app.use(cors());
     
-    app.use('/api', denunciaRoutes);
-    app.use('/api', apiRoutes);
+//config de rotas
+app.use('/auth', authRoutes)
+app.use('/api', complaintRoutes);//rotas de denuncia
+app.use('/api', apiRoutes);//essa rota não vai existir, atualmente se comunica com o gemini
 
-    app.get('/', (req, res) => {
-        res.send('Servidor SafePix Backend está funcionando!');
-    });
+// config para tratamento de erros
+app.use(errorHandler);
 
-    app.use(errorHandler);
+//função para startar o servidor 
+async function startServer() {
+    console.log("Iniciando servidor SafePix");
+    try {
+        await connectToDatabase();
+        console.log("Conexão com o MongoDB estabelecida com sucesso!");
 
-    async function startServer() {
-        console.log("Iniciando servidor SafePix Backend...");
-        try {
-            await connectToDatabase();
-            console.log("Conexão com o MongoDB estabelecida com sucesso!");
-
-            app.listen(port, () => {
-                console.log(`Servidor Express rodando na porta ${port}. Conectado ao MongoDB.`);
-            });
-        } catch (error) {
-            console.error("Falha ao iniciar o servidor ou conectar ao banco de dados:", error);
-            process.exit(1);
-        }
-    }
-
-    startServer();
-
-    process.on('SIGINT', async () => {
-        console.log('\nDesligamento do servidor. Fechando conexão com o banco de dados...');
-        await closeConnectionToDatabase(); 
-        process.exit(0);
-    });
-
-    process.on('SIGTERM', async () => {
-        console.log('\nDesligamento do servidor detectado (SIGTERM). Fechando conexão com o banco de dados...');
-        await closeConnection();
-        process.exit(0);
-    });
-
-    process.on('uncaughtException', (err) => {
-        console.error('Erro não capturado (uncaughtException):', err);
-        closeConnection().finally(() => { 
-            process.exit(1);
+        app.listen(port, () => {
+            console.log(`Servidor rodando em http://localhost:${port}.`);
         });
-    });
+    } catch (error) {
 
-    process.on('unhandledRejection', (reason, promise) => {
-        console.error('Rejeição de promessa não tratada (unhandledRejection):', reason);
-    });
+        throw new Error(`Erro ao iniciar o servidor: ${error.message}`)
+    }
+}
+
+startServer();
