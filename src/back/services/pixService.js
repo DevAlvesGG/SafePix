@@ -1,5 +1,3 @@
-
-
 const { getDb } = require('../config/database');
 
 async function denouncePixKey(pixKey, denunciaData) {
