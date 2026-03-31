@@ -22,7 +22,7 @@ const userModel = {
             const database = db.getDb();
 
             //valida o tipo das credenciais 
-            if(typeof email !== 'string' || typeof password !== 'string') throw new Error('Credenciais Precisam Ser String');
+            //if(typeof email !== 'string' || typeof password !== 'string') throw new Error('Credenciais Precisam Ser String');
 
             //valida se email ja esta cadastrado
             const existingUser = await database.collection('users').findOne({ email });
@@ -31,7 +31,8 @@ const userModel = {
             }
 
             //criptografa a password
-            const hashedPassword = await bcrypt.hash(password, 10);
+            const salt = await bcrypt.genSalt(10);
+            const hashedPassword = await bcrypt.hash(password, salt);
 
             const user = await database.collection('users').insertOne({
                 email: email,
