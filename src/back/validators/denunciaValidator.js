@@ -1,16 +1,16 @@
-function validarDenuncia(denuncia) {
+function checkDataComplaint(denuncia) {
     const errors = [];
 
     if(!denuncia.chavePix || denuncia.chavePix.trim() === '') {
         errors.push('A chave Pix é obrigatória.');
     }
-
+    
     if (!denuncia.nome || denuncia.nome.trim() === '') {
-        errors.push('Nome é obrigatório');
+        errors.push('O nome do denunciante é obrigatório');
     }
 
     if (!denuncia.motivo || denuncia.motivo.trim() === '') {
-        errors.push('Motivo é obrigatório');
+        errors.push('O motivo da denúncia é obrigatório');
     }
 
     return {
@@ -19,4 +19,4 @@ function validarDenuncia(denuncia) {
     };
 }
 
-module.exports = { validarDenuncia };
+module.exports = { checkDataComplaint };
