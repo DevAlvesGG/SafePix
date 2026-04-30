@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
-
-// importamos o controller que já tem as regras de validação/serviço
-//const pixController = require('../controllers/pixController');
+const complaintController = require('../controllers/complaintController');
 
 // POST /api/denunciarPix
-//router.post('/denunciarPix', pixController.criarDenuncia);
+router.post('/denunciarPix', complaintController.createComplaintPix);
 
 // GET /api/verificarPix/:chavePix
-//router.get('/verificarPix/:chavePix', pixController.verificarStatusPix);
+router.get('/verificarPix/:chavePix', complaintController.checkStatusPix);
+
+// DELETE /api/excluirDenuncia/:id
+router.delete('/excluirDenuncia/:id', complaintController.deleteComplaintPix);
 
 module.exports = router;
